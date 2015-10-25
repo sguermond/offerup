@@ -1,3 +1,5 @@
+Using FlipperPA's [django-python3-vagrant box](https://github.com/FlipperPA/django-python3-vagrant)
+
 ## django-python3-vagrant with FreeTDS for SQL Server
 
 Ships with Python 3.4, 2.7, and virtualenvwrapper (10/10/2015)
