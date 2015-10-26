@@ -129,6 +129,9 @@ class ItempricesItemsale(models.Model):
     city = models.CharField(max_length=120)
     cashless = models.BooleanField()
 
+    def __str__(self):
+        return str(self.id)
+
     class Meta:
         managed = False
         db_table = 'itemPrices_itemsale'
