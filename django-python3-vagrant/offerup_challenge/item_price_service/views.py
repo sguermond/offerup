@@ -13,8 +13,11 @@ def get_item(request):
         city_q = "Not specified"
         query = ItempricesItemsale.objects.filter(title=item_q)
         item_count = len(query)
-        query = query.values("list_price").annotate(count = Count("list_price")).latest('count')
-        price_suggestion = query["list_price"]
+        mode = query.values("list_price").annotate(count = Count("list_price")).latest('count')
+        if mode["count"] > 1:
+            price_suggestion = mode["list_price"]
+        else:
+            price_suggestion = query.aggregate(Max("list_price"))
         data = {
                 "status": 200,
                 "content": {
@@ -27,8 +30,11 @@ def get_item(request):
     elif city_q is not None and item_q is not None:
         query = ItempricesItemsale.objects.filter(title=item_q, city=city_q)
         item_count = len(query)
-        query = query.values("list_price").annotate(count = Count("list_price")).latest('count')
-        price_suggestion = query["list_price"]
+        mode = query.values("list_price").annotate(count = Count("list_price")).latest('count')
+        if mode["count"] > 1:
+            price_suggestion = mode["list_price"]
+        else:
+            price_suggestion = query.aggregate(Max("list_price"))
         data = {
                 "status": 200,
                 "content": {
