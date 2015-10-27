@@ -129,6 +129,7 @@ class ItempricesItemsale(models.Model):
     city = models.CharField(max_length=120)
     cashless = models.BooleanField()
 
+    # print out object's id number when listing objects to see differences
     def __str__(self):
         return str(self.id)
 
