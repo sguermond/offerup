@@ -18,5 +18,4 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^item-price-service/', include('item_price_service.urls'))
-    url(r'^admin/', include(admin.site.urls)),
 ]

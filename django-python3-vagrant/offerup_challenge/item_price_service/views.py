@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 import json
 from django.http import HttpResponse
-from django.db.models import Count
+from django.db.models import Count, Max
 from item_price_service.models import ItempricesItemsale
 
 def get_item(request):
