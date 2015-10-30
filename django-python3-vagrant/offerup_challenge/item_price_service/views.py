@@ -17,7 +17,7 @@ def get_item(request):
         if mode["count"] > 1:
             price_suggestion = mode["list_price"]
         else:
-            price_suggestion = query.aggregate(Max("list_price"))
+            price_suggestion = query.aggregate(max = Max("list_price"))["max"]
         data = {
                 "status": 200,
                 "content": {
